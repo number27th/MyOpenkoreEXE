@@ -1,0 +1,878 @@
+########### NOVICE RUN ON TRAINING GROUND ############
+automacro NoviceGroundPart1 {
+   location new_1-1, new_2-1, new_3-1, new_4-1, new_5-1, new_1-2, new_2-2, new_3-2, new_4-2, new_5-2, new_1-3, new_2-3, new_3-3, new_4-3, new_5-3, new_1-4, new_2-4, new_3-4, new_4-4, new_5-4
+   base == 1
+   job == 1
+   eval $::config{QuestPart} eq "Start"
+   run-once 1
+    call {
+        ## Setting Config ##
+        do conf route_randomWalk 0
+        do conf attackAuto 0
+		do conf lockMap none
+		#pickupitems
+		do pconf all 1
+		#mon_control
+		do mconf all 2 0 0
+		do mconf Steel chonchon 0 0 0
+		pause @rand(2,3)
+		do conf skillsAddAuto 1
+		do conf skillsAddAuto_list NV_BASIC 9
+		do conf autoMoveOnDeath 0
+		do conf autoMoveOnDeath_x none
+		do conf autoMoveOnDeath_y none
+		do conf autoMoveOnDeath_map none
+		do conf saveMap none
+		do conf saveMap_warpToBuyOrSell 0
+		pause @rand(2,3)
+		do conf sellAuto 0
+		do conf sellAuto_npc none
+		do conf sellAuto_standpoint none
+		do conf sellAuto_distance 5
+		do conf storageAuto 0
+		do conf storageAuto_npc none
+		do conf autoTalkCont 0
+		do conf sitAuto_hp_lower 20
+		do conf sitAuto_hp_upper 50
+		pause @rand(2,3)
+		do conf sitAuto_idle 0
+		do conf sitAuto_look 4
+		do conf sitAuto_look_from_wall 1
+		do conf itemsTakeAuto 2
+		do conf itemsGatherAuto 1
+		pause @rand(2,3)
+		do conf useSelf_item_0 Novice Potion, Meat, Apple, Apple Juice, Orange Potion, Yellow Herb, Monster's Feed, Banana, Sweet Potato, Potato, Carrot
+		do conf useSelf_item_0_hp < 50%
+		do conf useSelf_item_0_timeout 1
+        do reload config
+        do move $.map @rand(148,147) @rand(111,112)
+        }
+}
+
+
+automacro move2NPC {
+console /Portal Exists: new_.* -> new_.*(100, 6).*/i
+    call {
+   pause 3
+   do move $.map @rand(99,101) @rand(24,26)
+[
+   log ================================================
+   log =====  Second conversation with Sparkki  =======
+   log ================================================
+]
+   pause @rand(2,3)
+
+   do talknpc 100 29 c w2 c r0 w2 c w2 c w2 c
+   pause @rand(2,3)
+   do conf QuestPart Step1
+}
+}
+
+automacro talkNpcBrade {
+	eval $::config{QuestPart} eq "Step1"	
+	run-once 1
+    call {
+        pause @rand(2,3)
+        do move $.map @rand(99,102) @rand(100,105)
+        pause @rand(2,3)
+        do talknpc 100 105 c
+        pause 5
+        do eq Novice Slippers
+        pause 1
+        do eq Novice False Eggshell
+        do eq Novice Main-Gauche
+        do eq Novice Guard
+        do eq Somber Novice Hood
+        do eq Tattered Novice Ninja Suit
+        pause 2
+        do talknpc 100 105 c
+		pause 2
+		do conf QuestPart Step2
+    } 
+}
+
+automacro talkNpcJinha {
+	eval $::config{QuestPart} eq "Step2"	
+	run-once 1
+    call {
+        pause @rand(2,3)
+        do move $.map @rand(110,112) @rand(108,110)
+        pause @rand(2,3)
+		do talknpc 115 120 w2 c w2 r0 w2 c w2 c w2 c w2 c
+		pause @rand(2,3)
+		do talknpc 115 120 w2 c w2 r1 w2 c 
+		pause @rand(2,3)
+		do conf QuestPart Step3
+    } 
+}
+
+
+automacro talkNpcBradeStep2 {
+	eval $::config{QuestPart} eq "Step3"
+	run-once 1
+    call {
+        pause @rand(2,3)
+        do move $.map @rand(99,102) @rand(100,105)
+        pause @rand(2,3)
+        do talknpc 100 105 c
+		pause @rand(2,3)
+		do conf QuestPart Step4
+    } 
+}
+
+automacro talkNpcChocolat {
+	eval $::config{QuestPart} eq "Step4"
+	run-once 1
+	base >= 4
+	job >= 3
+    call {
+        pause 4
+        do move $.map @rand(71,73) @rand(104,106)
+        pause 5
+		[
+   log ================================================
+   log ========  Conversation with Chocolat  ==========
+   log ================================================
+		]
+        do talknpc 33 172 w1 c w1 c w1 c w1 c
+        pause @rand(2,3)
+        do move $.map @rand(25,28) @rand(173,175)
+		[
+   log ================================================
+   log =========  Conversation with Kafra  ============
+   log ================================================
+		]
+        do talknpc 30 176 w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 r4 w1 c
+		pause @rand(2,3)
+		[
+   log ================================================
+   log =========  Conversation with Soldier  ============
+   log ================================================
+		]
+		do talknpc 33 176 w1 c w1 c w1 c w1 c w1 c w1 c
+		pause @rand(2,3)
+		do talknpc 36 176 w4 c w4 c w4 c w4 c
+		pause @rand(2,3)
+		do conf QuestPart Step5 
+    } 
+}
+
+automacro Chocolat2 {
+	eval $::config{QuestPart} eq "Step5"
+	run-once 1
+	call {
+		pause @rand(2,3)
+		do talknpc 33 172 w2 c w2 c w2 c w2 c w2 c w2 c
+		pause @rand(2,3)
+		do conf QuestPart Step6
+	}	
+}
+
+
+automacro NoviceGroundPart9 {
+   location  new_1-1, new_2-1, new_3-1, new_4-1, new_5-1, new_1-2, new_2-2, new_3-2, new_4-2, new_5-2, new_1-3, new_2-3, new_3-3, new_4-3, new_5-3, new_1-4, new_2-4, new_3-4, new_4-4, new_5-4
+   eval $::config{QuestPart} eq "Step6"
+   class Novice
+   run-once 1
+   call NoviceGroundPart9M
+}
+
+macro NoviceGroundPart9M {
+	pause 2
+   [
+   log ================================================
+   log =============  Novice Battlefield  =============
+   log ================================================
+   ]
+   do conf attackAuto 0
+   pause 3
+   do move $.map  @rand(94,96) @rand(26,28)
+[
+   log ================================================
+   log =========  Conversation with Brade 3  ==========
+   log ================================================
+]
+	do move $.map  @rand(94,96) @rand(26,28)
+   pause @rand(2,3)
+   do talknpc 96 30 w2 c w2 c w2 c w2 c w2 c w2 c
+   pause @rand(2,3)
+   do conf route_randomWalk 1
+   pause 2
+   do conf attackAuto 2
+   do mconf poring 2 
+   pause @rand(2,3)
+   $poring = @eval(0)   
+   do conf QuestPart NoviceZone10
+}
+
+automacro NoviceZone10 {
+	eval $::config{QuestPart} eq "NoviceZone10"
+	console /(You attack Monster Poring)/i
+	call NoviceGroundPart10M
+	run-once 1
+}
+
+macro NoviceGroundPart10M {
+   $poring = @eval($poring+1)
+   if ($poring < 3) goto rls
+   if ($poring >= 3) goto npc
+   
+   :rls
+   release all
+   goto end
+
+   :npc
+   pause @rand(3,4)
+   do conf route_randomWalk 0
+   pause @rand(2,3)
+   do conf attackAuto 0
+   pause @rand(2,3)
+   do conf itemsTakeAuto 2 
+   pause @rand(3,4)
+   do move $.map  @rand(94,96) @rand(26,28)
+[
+   log ================================================
+   log =========  Conversation with Brade 4  ==========
+   log ================================================
+]
+   pause @rand(2,3)
+   do talknpc 96 30 w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c
+   pause @rand(2,3)
+   do eq Novice Cutter
+   do conf QuestPart Step8
+
+   :end
+   stop
+}
+
+automacro Picky {
+   eval $::config{QuestPart} eq "Step8"
+   class Novice
+   run-once 1
+   call {
+   [
+   log ================================================
+   log =======  Conversation with Npc Swordman  =======
+   log ================================================
+   ]
+   pause @rand(2,3)
+   pause @rand(2,3)
+   do conf route_randomWalk 0
+   do move $.map @rand(96,98) @rand(37,39)
+   do talknpc 97 41 w2 c w2 r0 w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 r0 w2 c w2 c w2 c
+   pause @rand(2,3)
+   do talknpc 97 41 w2 c w2 r2 w2 c w2 c w2 c
+   pause @rand(2,3)
+        do eq Novice Slippers
+        pause 1
+        do eq Novice False Eggshell
+        do eq Novice Main-Gauche
+        do eq Novice Guard
+        do eq Somber Novice Hood
+        do eq Tattered Novice Ninja Suit
+		do eq Novice Cutter
+   do conf attackAuto 2
+   pause 1
+   do conf route_randomWalk 1
+   pause 1
+   do conf itemsTakeAuto 2
+   $Picky = @eval(0)
+   do mconf all 2 0 0
+   do conf QuestPart Picky
+   do reload all
+	}
+}
+   
+automacro PickyCont {
+   eval $::config{QuestPart} eq "Picky"
+   class Novice
+   run-once 1
+   console /(You attack Monster Picky)/i
+   call {
+   $Picky = @eval($Picky+1)
+   if ($Picky < 2) goto end
+   if ($Picky >= 2) goto finish
+    
+   :end
+   release PickyCont
+   stop
+
+   :finish
+   pause 1
+   do conf route_randomWalk 0
+   pause 1
+   do conf attackAuto 0
+   do reload conf
+   pause @rand(2,3)
+   do move $.map @rand(96,98) @rand(37,39)
+   do talknpc 97 41 w2 c w2 r2 w2 c
+   pause @rand(2,3)
+   log = Quest Concluded =
+   
+   pause @rand(3,4)
+   do conf QuestPart Step9
+   do conf route_randomWalk 1
+   do conf attackAuto 2
+   do conf sellAuto 1
+   do conf sellAuto_npc $.map 100 50
+   do conf sellAuto_standpoint none
+   do conf sellAuto_distance 7
+   do conf sellAuto_npc_steps s e
+   do reload conf
+   stop
+	}
+}
+
+automacro JobChange {
+   eval $::config{QuestPart} eq "Step9"
+   class Novice
+   base == 20
+   job == 10
+   run-once 1
+   call {
+	 do conf attackAuto 0
+	 do conf route_randomWalk 0
+	 do reload conf
+	[
+   log ================================================
+   log =========  Starting Job Class Change  ==========
+   log ================================================
+	]  
+   pause @rand(2,3)
+   do move @rand(100,102) @rand(37,39)
+   pause @rand(2,3)
+   do talknpc 97 41 w2 c w2 r1 w2 c w2 c w2 r1 w2 c
+   pause 3
+   do conf QuestPart QuestClass   
+	}
+}
+
+##
+# Swordsman Test
+##
+
+automacro SwordQuestBegin {
+	class Novice
+	base == 20
+	job == 10
+	location izlude_in
+	eval $::config{QuestPart} eq "QuestClass"
+	run-once 1
+	call {
+	pause 1
+	do talknpc 74 172 w1 c w1 r0 w1 c w1 r0 w1 c w1 r0 w1 c w1 c
+	pause @rand(2,3)
+	do conf QuestPart SwordmanQuest2
+	}
+}
+
+automacro SwordQuestPart2 {
+	location izlude_in
+	eval $::config{QuestPart} eq "SwordmanQuest2"
+	run-once 1
+	call {
+	pause 1
+	do move $.map @rand(63,65) @rand(168,170)
+	pause @rand(2,3)
+	do talk @npc(62 170)
+	pause @rand(3,4)
+	do conf QuestPart SwordmanQuest5
+	}
+}
+
+automacro SwordQuestPart5 {
+	location izlude_in
+	eval $::config{QuestPart} eq "SwordmanQuest5"
+	run-once 1
+	call {
+	pause @rand(2,3)
+	do talknpc 30 175 w1 c w1 c w1 c w1 c
+	pause @rand(2,3)
+	do conf QuestPart SwordmanQuest8
+	}
+}
+
+
+automacro SwordQuestPart65M {
+	location izlude_in
+	eval $::config{QuestPart} eq "SwordmanQuest8"
+	run-once 1
+	call {
+	pause @rand(2,3)
+	do talknpc 30 163 w1 c
+	pause @rand(3,4)
+	do conf QuestPart SwordmanQuest9
+	}
+}
+
+
+automacro SwordQuestPart8 {
+	location sword_1-1 10 245, sword_2-1 10 245, sword_3-1 10 245
+	eval $::config{QuestPart} eq "SwordmanQuest9"
+	run-once 1
+	call {
+	pause 1
+	do move 23 244
+	pause 1
+	do move 23 241
+	pause 1
+	do move 36 241
+	pause 1
+	do move 47 241
+	pause 1
+	do move 58 241
+	pause 1
+	do move 69 241
+	pause 1
+	do move 71 240
+	pause 1
+	do move 72 240
+	pause 1
+	do move 84 241
+	pause 1
+	do move 95 241
+	pause 1
+	do move 97 239
+	pause 1
+	do move 107 240
+	pause 1
+	do move 118 244
+	pause 1
+	do move 130 244
+	pause 1
+	do move 149 242
+	pause 1
+	do move 160 242
+	pause 1
+	do move 172 242
+	pause 1
+	do move 185 245
+	pause 1
+	do move 193 247
+	pause @rand(2,3)
+	do conf QuestPart SwordmanQuest10
+	}
+}
+
+
+automacro SwordQuestPart9 {
+	location sword_1-1 215 244, sword_2-1 215 244, sword_3-1 215 244
+	eval $::config{QuestPart} eq "SwordmanQuest10"
+	run-once 1
+	call {
+	pause 2
+	do move 222 244
+	pause @rand(2,3)
+	do conf QuestPart SwordmanQuest11
+	}
+}
+
+
+automacro SwordQuestPart10 {
+	location sword_1-1 11 206, sword_2-1 11 206, sword_3-1 11 206
+	eval $::config{QuestPart} eq "SwordmanQuest11"
+	run-once 1
+	call {
+	pause 1
+	do move 15 202
+	pause 1
+	do move 27 202	
+	pause 1
+	do move 38 202
+	pause 1
+	do move 49 202
+	pause 1
+	do move 60 202
+	pause 1
+	do move 71 202
+	pause 1
+	do move 82 202
+	pause 1
+	do move 89 202
+	pause 1
+	do move 99 202
+	pause 1
+	do move 115 202
+	pause 1
+	do move 126 202
+	pause 1
+	do move 137 202
+	pause 1
+	do move 148 202
+	pause 1
+	do move 159 202
+	pause 1
+	do move 170 202
+	pause 1
+	do move 181 202
+	pause 1
+	do move 187 202
+	pause 1
+	do move 193 206
+	pause @rand(2,3)
+	do conf QuestPart SwordmanQuest12
+	}
+}
+
+
+automacro SwordQuestPart11 {
+	location sword_1-1 215 205, sword_2-1 215 205, sword_3-1 215 205
+	eval $::config{QuestPart} eq "SwordmanQuest12"
+	run-once 1
+	call {
+	pause 2
+	do move 222 205
+	pause @rand(2,3)
+	do conf QuestPart SwordmanQuest13
+	}
+}
+
+
+automacro SwordQuestPart12 {
+	location sword_1-1 11 168, sword_2-1 11 168, sword_3-1 11 168
+	eval $::config{QuestPart} eq "SwordmanQuest13"
+	run-once 1
+	call {
+	pause 5
+	do move 25 168
+	pause 1
+	do move 25 165
+	pause 1
+	do move 33 165
+	pause 1
+	do move 33 166
+	pause 1
+	do move 39 166
+	pause 1
+	do move 39 164
+	pause 1
+	do move 46 164
+	pause 1
+	do move 46 166
+	pause 1
+	do move 52 166
+	pause 1
+	do move 52 164
+	pause 1
+	do move 58 164
+	pause 1
+	do move 58 166
+	pause 1
+	do move 64 166
+	pause 1
+	do move 64 164
+	pause 1
+	do move 73 164
+	pause 1
+	do move 73 167
+	pause 1
+	do move 80 167
+	pause 1
+	do move 80 163
+	pause 1
+	do move 92 163
+	pause 1
+	do move 92 167
+	pause 1
+	do move 113 167
+	pause 1
+	do move 113 164
+	pause 1
+	do move 116 164
+	pause 1
+	do move 116 166
+	pause 1
+	do move 125 166
+	pause 1
+	do move 125 164
+	pause 1
+	do move 129 164
+	pause 1
+	do move 129 162
+	pause 1
+	do move 158 164
+	pause 1
+	do move 158 167
+	pause 1
+	do move 167 167
+	pause 1
+	do move 167 165
+	pause 1
+	do move 170 165
+	pause 1
+	do move 170 170
+	pause 1
+	do move 175 170
+	pause 1
+	do move 177 171
+	pause 1
+	do move 181 171
+	pause 1
+	do move 181 172
+	pause 1
+	do move 184 172
+	pause 1
+	do move 184 168
+	pause 1
+	do move 192 168
+	pause @rand(2,3)
+	do conf QuestPart SwordmanQuest14
+	}
+}
+
+
+automacro SwordQuestPart13 {
+	location sword_1-1 215 167, sword_2-1 215 167, sword_3-1 215 167
+	eval $::config{QuestPart} eq "SwordmanQuest14"
+	run-once 1
+	call {
+	pause 1
+	do move 221 167
+	pause @rand(2,3)
+	do conf QuestPart SwordmanQuest15
+	}
+}
+
+automacro SwordQuestPart14 {
+	location sword_1-1 221 167, sword_2-1 221 167, sword_3-1 221 167
+	eval $::config{QuestPart} eq "SwordmanQuest15"
+	run-once 1
+	call {
+	pause 1
+	do talk @npc(223 167)
+	pause @rand(2,3)
+	do conf QuestPart SwordmanQuest16
+	}
+}
+
+automacro SwordQuestPart15 {
+	location izlude_in
+	eval $::config{QuestPart} eq "SwordmanQuest16"
+	run-once 1
+	call {
+	pause @rand(2,3)
+	do move izlude_in 74 168
+	pause @rand(2,3)
+	do talknpc 74 172 w1 c w1 r0 w1 c
+	pause @rand(2,3)
+	do conf QuestPart Level20
+	}
+}
+
+automacro Level20 {
+		eval $::config{QuestPart} eq "Level20"
+		location izlude_in
+		run-once 1
+	call {
+		do move izlude @rand(131,131) @rand(89,89)
+		pause @rand(2,3)
+		do conf lockMap none
+		do conf saveMap geffen
+		do conf attackAuto 2
+		do conf route_randomWalk 0
+		do conf saveMap_warpToBuyOrSell 1
+		do conf statsAddAuto 1
+		do conf statsAddAuto_list 15 str, 15 dex, 30 agi, 25 dex, 50 agi, 30 str
+		pause @rand(2,3)
+		do conf useSelf_item_0 Novice Potion, Meat, Apple, Apple Juice, Orange Potion, Yellow Herb, Monster's Feed, Banana, Sweet Potato, Potato, Carrot
+		do conf useSelf_item_0_hp < 50%
+		do conf useSelf_item_0_timeout 1
+		do conf skillsAddAuto 1
+		do conf skillsAddAuto_list SM_SWORD 1, SM_TWOHAND 10, SM_RECOVERY 10, SM_BASH 10, SM_MAGNUM 10, SM_PROVOKE 5, SM_ENDURE 3
+		do conf sellAuto 1
+		do conf sellAuto_npc geffen_in 74 144
+		do conf sellAuto_npc_steps s e
+		pause @rand(2,3)
+		do conf storageAuto 1
+		do conf storageAuto_npc geffen 120 62
+		do mconf all 2 0 0
+		do conf QuestPart Level30E
+		do reload config
+		pause @rand(4,5)
+	}
+}
+
+automacro Level30E {
+		eval $::config{QuestPart} eq "Level30E"
+		location izlude 131 89
+		run-once 1
+	call {
+		do talknpc 134 88 c r2 c r0
+		pause @rand(2,3)
+		do conf QuestPart Level30
+	}
+}
+
+
+
+automacro Level30 {
+		eval $::config{QuestPart} eq "Level30"
+		run-once 1
+	call {
+		pause @rand(2,3)
+		do move geffen @rand(127,127) @rand(63,63)
+		do conf QuestPart Level30A
+	}
+}
+
+automacro Level30A {
+		eval $::config{QuestPart} eq "Level30A"
+		location geffen 127 63
+		run-once 1
+	call {
+		pause @rand(2,3)
+		do talknpc 120 62 r0 c
+		pause @rand(2,3)
+		do eq Novice Cutter [3]
+		do conf route_teleport 1
+		do conf route_teleport_minDistance
+		pause @rand(2,3)
+		do conf route_randomWalk 1
+		pause @rand(2,3)
+		do conf teleportAuto_useSkill 1
+		do reload config
+		do conf QuestPart Level30S
+}
+}
+
+automacro Level30S {
+		eval $::config{QuestPart} eq "Level30S"
+		run-once 1
+	call {
+		do conf lockMap mjolnir_06
+		pause @rand(2,3)
+		do conf attackAuto 2
+		pause @rand(2,3)
+		do conf route_randomWalk 1
+		pause @rand(2,3)
+		do conf allowedMaps geffen,geffen_in,gef_fild07,gef_fild13,gef_fild09,gef_fild10,gef_fild03,gef_fild12,gef_fild08,gef_fild06,gef_fild05,gef_fild01,mjo_dun01,mjo_dun02,mjolnir_01,mjolnir_02,mjolnir_03,mjolnir_04,mjolnir_05,mjolnir_08,mjolnir_07,mjolnir_06,gef_fild00
+		pause @rand(2,3)
+		do conf allowedMaps_reaction 0
+		pause @rand(2,3)
+		do conf autoResponse 1
+		do conf reload config
+		pause @rand(2,3)
+		do conf QuestPart Level45
+	}	
+}
+
+automacro Level45 {
+		eval $::config{QuestPart} eq "Level45"
+		base >= 45
+		run-once 1
+	call {
+		do conf lockMap mjolnir_06
+		pause @rand(3,4)
+		do conf buyAuto_0 Fly Wing
+		do conf buyAuto_0_npc geffen_in 77 167
+		do conf buyAuto_0_minAmount 0
+		do conf buyAuto_0_maxAmount 30
+		do conf buyAuto_0_distance 8
+		pause @rand(3,4)
+		do conf buyAuto_1 Awakening Potion
+		do conf buyAuto_1_npc geffen_in 77 167
+		do conf buyAuto_1_minAmount 0
+		do conf buyAuto_1_maxAmount 5
+		do conf buyAuto_1_distance 8
+		pause @rand(3,4)		
+		do conf buyAuto_2 Butterfly Wing
+		do conf buyAuto_2_npc geffen_in 77 167
+		do conf buyAuto_2_minAmount 0
+		do conf buyAuto_2_maxAmount 5
+		do conf buyAuto_2_distance 8
+		pause @rand(3,4)
+		do conf useSelf_item_1 Awakening Potion
+		do conf useSelf_item_1_whenStatusInactive Awakening Potion
+		do conf useSelf_item_1_inLockOnly 1
+		do conf useSelf_item_1_timeout 5
+		pause @rand(3,4)
+		do conf attackSkillSlot_0 Bash
+		do conf attackSkillSlot_0_lvl 10
+		do conf attackSkillSlot_0_sp > 70
+		do conf attackSkillSlot_0_inLockOnly 1
+		do conf attackSkillSlot_0_timeout 1
+		do conf attackSkillSlot_0_maxUses 2
+		pause @rand(3,4)
+		do conf QuestPart Level45S
+		do conf reload config	
+	}
+}
+	
+automacro DealtoMyMC {
+	console /(Teleporting to auto-buy)|(Teleporting to auto-sell)|(Teleporting to auto-storage)/
+	exclusive 1
+	run-once 1
+	call {
+	pause 7
+    	do move @rand(115,117) @rand(61,63)
+    	pause 1
+    	call DeaLItemStart
+	}
+}
+
+macro DeaLItemStart {
+
+          $NumOfItems = @eval (return $::char->inventory->size());
+          $KeepZeny = 50000
+
+          $maxloop = @eval ($NumOfItems / 10)
+          $itmes1 = @inventory (Two-handed Sword [1])
+          $itmes2 = @inventory (Manteau)
+          $itmes3 = @inventory (Boots)
+          $itmes4 = @inventory (Helm)
+          $itmes5 = @inventory (Chain Mail)
+          $itmes6 = @inventory (Fly Wing)
+          $itmes7 = @inventory (Butterfly Wing)
+          $itmes8 = @inventory (Awakening Potion)
+          $itmes9 = @inventory (Red Potion)
+
+          if ($maxloop < 1) $maxloop = 1
+          $pl = @player (Doomado)
+          $items = 0
+          $j = 1
+
+
+
+          while ($j <= $maxloop) as loop1
+              pause 2
+              do deal $pl
+              pause 2
+              $i = 1
+              while ($i <= 10) as loop2
+
+                if ($items == $itmes1 || $items == $itmes2 || $items == $itmes3 || $items == $itmes4 || $items == $itmes5 || $items == $itmes6 || $items == $itmes7 || $items == $itmes8 || $items == $itmes9) goto notsell
+
+                 do deal add $items
+
+                 :notsell
+                 $items++
+                 $i++
+              end loop2
+
+              pause 2
+             $DealZeny = @eval ($.zeny - $KeepZeny)
+             if ( $DealZeny > 0) {
+                do deal add z $DealZeny
+                pause 2
+            }
+          do deal
+          pause 2
+          do deal
+          pause 5
+          $j++
+          end loop1
+
+          release $.caller
+}
+
+automacro WaitingtoDeal {
+console /(That person is in another deal)/
+location Geffen
+exclusive 1
+run-once 1
+    call {
+            pause 20
+            call DeaLItemStart
+
+    }
+}

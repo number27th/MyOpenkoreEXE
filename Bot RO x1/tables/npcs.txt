@@ -1,0 +1,53 @@
+new_4-2 100 29 Sprakki#newbe05
+new_4-1 144 107 Guard
+new_2-3 97 41 Swordman#newbe10
+new_2-3 101 41 Nun#newbe10
+new_2-3 105 41 Thief#newbe10
+new_2-3 109 41 Merchant#newbe10
+new_2-3 113 41 Archer#newbe10
+new_2-3 117 41 Mage#newbe10
+new_2-3 100 50 Merchant#newbe09
+new_2-3 103 50 Trainer
+new_2-3 96 30 Brade#newbe04
+prontera 29 207 Kafra Staff
+geffen 132 38 Bard#2
+geffen 120 62 Kafra Staff
+geffen 122 77 Niel#yagu
+geffen 119 107 Smile Helper
+geffen 109 123 Leprion
+prontera 148 49 Bulletin Board#pron
+prontera 151 29 Kafra Staff
+prontera 160 29  ไกด์ประตูทิศใต้ 
+prontera 165 63 CartConverter Kaijo
+prontera 165 69 Mergician#mall
+prontera 146 89 Kafra Staff
+prontera 164 111 Taiming Expert#magic
+prontera 223 99  ทหาร 
+prontera 229 104  ทหาร 
+prontera 146 103 Suhnbi
+payon 162 67  ไกด์นำทาง 
+payon 103 63 Gaeho
+payon 91 77 คนขายกระเป๋า
+new_4-1 144 116 Guard
+new_4-1 66 114 Bulletin Board
+new_4-1 53 114 Sprakki#newbe01
+new_4-2 100 105 Brade#newbe02
+new_4-2 115 120 Jinha#newbe03
+new_4-2 161 182 Instructor#Edwin
+new_4-2 33 172 Chocolat#newbe06
+new_4-2 30 176 Kafra#newbe07
+new_4-2 33 176 Zonda#newbe08
+new_4-2 36 176 Soldier
+new_1-2 33 172 Chocolat#newbe06
+new_1-2 36 176 Soldier
+new_1-2 30 176 Kafra#newbe07
+new_1-2 33 176 Zonda#newbe08
+new_1-2 100 105 Brade#newbe02
+new_1-2 115 120 Jinha#newbe03
+new_1-3 96 30 Brade#newbe04
+new_1-3 97 41 Swordman#newbe10
+new_1-3 101 41 Nun#newbe10
+new_1-3 105 41 Thief#newbe10
+new_1-3 109 41 Merchant#newbe10
+new_1-3 100 50 Merchant#newbe09
+new_1-3 103 50 Trainer

@@ -1,0 +1,11 @@
+[Thai]
+ip 103.55.55.12
+port 6900
+master_version 7
+version 24
+serverType tRO
+serverEncoding Thai
+charBlockSize 144
+recvpackets recvpackets.txt
+addTableFolders tRO
+captcha 0

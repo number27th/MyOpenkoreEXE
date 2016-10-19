@@ -1,0 +1,46 @@
+# avoid.txt: Avoid certain players
+# WARNING: The commented players and IDs here are for iRO GMs/bot-hunters and are probably outdated.
+
+# Format: <name> (TAB(s)) <disconnect when in sight> <teleport when in sight> <disconnect on chat>
+[Extreme]Voldemort	1 0 1
+[Admin]Baphomet	1 0 1
+[Admin]Doppelganger	1 0 1
+[Admin]Drake	1 0 1
+[Admin]Eddga	1 0 1
+[Admin]Ifrit	1 0 1
+[Admin]Maya	1 0 1
+[Admin]Osiris	1 0 1
+Admin`Star	1 0 1
+[Admin]SoHee	1 0 1
+[Admin]Dalif	1 0 1
+Admin`Baphomet	1 0 1
+Admin`TaMaz	1 0 1
+Admin`BeBeeZa55Yo 1 0 1
+[Admin]GoD 1 0 1
+[Admin]Drop` 1 0 1
+
+[ID]
+# Same as above, but uses player IDs instead of names
+# There is no disconnect on chat for this section.
+100006	1 0
+100007		1 0
+100008		1 0
+100009		1 0
+100010		1 0
+100011		1 0
+100012		1 0
+100013		1 0
+100014		1 0
+100015		1 0
+100016		1 0
+100017		1 0
+100018		1 0
+100019		1 0
+100020		1 0
+100021		1 0
+100022		1 0
+100023		1 0
+100024		1 0
+# 527205		1 0
+# 483471		1 0
+# 527211		1 0
