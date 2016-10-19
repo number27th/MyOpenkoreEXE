@@ -1,0 +1,102 @@
+automacro unstuck {
+   timeout 3
+   exclusive 1
+   console /You tried too long to move/
+   call {
+		# do eval AI::clear
+   }
+}
+
+automacro hplow {
+	hp <= 50%
+	timeout 3
+	exclusive 1
+	call {
+		log HP ต่ำ  กำลังเดินไปเติมเลือด 
+		do move 96 30
+		pause 0.5
+		$npc = @npc("Brade#newbe04")
+		pause 1
+		log $npc
+		do talk $npc
+		pause 5
+		do talk resp 0
+		pause 1
+		log เติมเลือดเรียบร้อย
+		pause 2
+		do talk resp 2
+		
+	}
+}
+
+automacro PM {
+    pm /.*/i
+    call {
+        do eval Utils::Win32::playSound('C:\Users\Wuttiwong\Music\bells003.wav')
+        do conf logConsole 0
+   }
+}
+
+automacro Ban {
+	location izlude
+	exclusive 1
+	timeout 1
+	call {
+		do is Butterfly Wing
+	}
+}
+
+automacro Ban2 {
+	location izlude
+	exclusive 1
+	timeout 1
+	call {
+		do is Novice Butterfly Wing
+	}
+}
+
+automacro Ban3 {
+	location louyang
+	exclusive 1
+	timeout 1
+	call {
+		do is Butterfly Wing
+	}
+}
+
+automacro Ban4 {
+	location louyang
+	exclusive 1
+	timeout 1
+	call {
+		do is Novice Butterfly Wing
+	}
+}
+
+automacro humanwarp {
+	location lockmap
+	console /opened Warp Portal/
+	call {
+		do is Fly Wing
+		release all
+	}
+}
+
+automacro humanwarp2 {
+	location lockmap
+	console /opened Warp Portal/
+	call {
+		do is Novice Fly Wing
+		release all
+	}
+}
+
+automacro rungm {
+	location izlude 178 57 207 54
+	timeout 1
+	call {
+		do is Fly Wing
+		do respawn
+		release all
+	}
+}

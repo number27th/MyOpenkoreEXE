@@ -1,0 +1,120 @@
+# In this file you can control which items to put in storage,
+# to sell, or to leave in the inventory.
+#
+# Syntax:
+# (item name) (minimum) (auto-store) (auto-sell) [put in cart] [get from cart]
+# item name	: Name of the item.
+# miminum	: The minimum amount of this item that you want to keep in inventory.
+# autostore	: Set to 1 to walk back to a Kapra NPC to put in storage.
+# autosell	: Set to 1 to sell item at a buy/sell NPC.
+# put in cart	: Set to 1 to automatically put this item in cart.
+# get from cart : Set to 1 to automatically get this item from cart.
+#
+# The example below will sell all jellopies, store all knifes and puts
+# all flowers in cart:
+#	Jellopy 0 0 1
+#	Knife 0 1 0
+#	Flower 0 0 0 1
+#
+# This example will get Red Potions from cart if you have less than 25
+# of them in your inventory:
+# 	Red Potion 25 0 0 1 0
+#
+# The item name isn't case sensitive. Only items found in this file will
+# be stored or sold.
+#
+# If auto-store and auto-sell are 1, Kore will do storage first (unless
+# storage is full) then sell.
+#
+# Kore will not sell or store equipped items. For example, if you're using
+# a knife and you have a line to auto-sell all knives, kore will sell any
+# extras it picks up, not the knife it's using.
+#
+# Don't forget to set the storageAuto, sellAuto and related configuration
+# options in config.txt, or this file won't have any effect.
+#
+# An auto-sell list and auto-storage list is provided by default, modify it
+# as you see fit.
+
+
+# All items not mentioned in this file will be automatically stored in storage.
+
+Butterfly Wing 5 1 0
+Fly Wing 50 1 0
+Siege White Potion 20 1 0
+Siege Blue Potion 10 1 0
+Free Ticket For Kafra Transportation 0 0 0
+Free Ticket For Kafra Storage 0 0 0
+Novice Potion 0 0 0
+Novice fly wing 0 0 0
+Novice Butterfly wing 0 0 0
+
+##### HEAL/SUPPORT ITEMS #####
+# Adjust these to your needs
+
+Blue Potion 0 1 0
+Condensed Red Potion 50 1 0
+Condensed White Potion 50 1 0
+Condensed Yellow Potion 50 1 0
+Green Potion 0 1 0
+Red Potion 200 0 0
+Orange Potion 25 1 0
+White Potion 25 1 0
+Yellow potion 25 1 0
+Awakening Potion 10 0 0
+Novice Potion 900 0 0
+Novice Fly Wing 900 0 0
+Novice Butterfly Wing 100 0 0
+"Free Ticket for Kafra Storage" 50 0 0
+"Free Ticket for Kafra Transportation" 50 0 0
+
+##### ARROWS #####
+# You may want to modify these if you're an archer/hunter
+
+##Fire ARROWS 2000 1 0
+
+#########################
+##### SELLING ITEMS #####
+#########################
+
+Jellopy 0 0 1
+Mace 0 0 1
+Empty Bottle 0 0 1
+Clover 0 0 1
+Sticky Webfoot 0 0 1
+Feather 0 0 1
+Tree Root 0 0 1
+Fine-grained Trunk 0 0 1
+Solid Trunk 0 0 1
+Shell 0 0 1
+
+Meat 50 0 1
+Apple 50 0 1
+Sweet Potato 50 0 1
+Potato 50 0 1
+Carrot 50 0 1
+Red Herd 50 0 1
+Strawberry 50 0 0
+Unripe Apple 50 0 0
+Orange Juice 50 0 0
+Rainbow Carrot 50 0 0
+Bitter Herb 50 0 0
+Earthworm the Dude 50 0 0
+Sweet Potato 50 0 0
+
+Poring Card 50 1 0
+Fabre Card 50 1 0
+Pupa Card 50 1 0
+Drops Card 50 1 0
+Roda Frog Card 50 1 0
+Spore Card 50 1 0
+Willow Card 50 1 0
+Picky Card 50 1 0
+Chonchon Card 50 1 0
+Rod [4] 1 1 0
+Trunk 1 1 0
+Clown Nose 10 0 0
+
+All 0 0 1
+
+
